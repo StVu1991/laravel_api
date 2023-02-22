@@ -3,7 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use App\Model\Customer;
+use App\Models\Customer;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Invoice>
@@ -22,8 +22,8 @@ class InvoiceFactory extends Factory
             'customer_id' => Customer::factory(),
             'amount' => $this->faker->numberBetween(100,20000),
             'status' => $status,
-            'billed_data' => $this->faker->dateTimeThisDecade(),
-            'paid_date' => status == 'P' ? $this->faker->dateTimeThisDecade() : NULL    
+            'billed_date' => $this->faker->dateTimeThisDecade(),
+            'paid_date' => $status == 'P' ? $this->faker->dateTimeThisDecade() : NULL    
         ];
     }
 }
